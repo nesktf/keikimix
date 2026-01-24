@@ -1,0 +1,6 @@
+[submodule "lib/chimatools"]
+	path = lib/chimatools
+	url = https://github.com/nesktf/chimatools.git
+[submodule "lib/shogle"]
+	path = lib/shogle
+	url = https://github.com/nesktf/shogle.git
