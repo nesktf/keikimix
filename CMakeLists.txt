@@ -9,21 +9,13 @@ set(LIB_INCLUDE)
 set(LIB_LINK)
 
 # shogle
+set(SHOGLE_ENABLE_IMGUI ON)
 add_subdirectory("lib/shogle")
-list(APPEND LIB_INCLUDE shogle)
 list(APPEND LIB_LINK shogle)
 
 # chimatools
-ExternalProject_Add(chimatools
-  SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/chimatools"
-  BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/lib/chimatools"
-  CONFIGURE_COMMAND ""
-  BUILD_COMMAND make -C <SOURCE_DIR> BUILD_DIR=<BINARY_DIR> lib
-  BUILD_BYPRODUCTS <BINARY_DIR>/libchimatools.a
-  INSTALL_COMMAND ""
-)
-list(APPEND LIB_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/lib/chimatools/include")
-list(APPEND LIB_LINK "${CMAKE_CURRENT_BINARY_DIR}/lib/chimatools/libchimatools.a")
+add_subdirectory("lib/chimatools")
+list(APPEND LIB_LINK chimatools)
 
 file(GLOB_RECURSE SOURCE_FILES "src/*.cpp")
 
